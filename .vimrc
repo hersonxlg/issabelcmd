@@ -1,7 +1,18 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
+"               
+"               ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
+"               ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
+"               ██║   ██║██║██╔████╔██║██████╔╝██║     
+"               ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║     
+"                ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
+"                 ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
+"               
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
+
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
-" Enable type file detection. Vim will be able to try to detect the type of file in use.
+" Enable type file detection. Vim will be able to try to detect the type of file is use.
 filetype on
 
 " Enable plugins and load plugin for the detected file type.
@@ -13,7 +24,7 @@ filetype indent on
 " Turn syntax highlighting on.
 syntax on
 
-" Add numbers to each line on the left-hand side.
+" Add numbers to the file.
 set number
 
 " Highlight cursor line underneath the cursor horizontally.
@@ -21,8 +32,6 @@ set cursorline
 
 " Highlight cursor line underneath the cursor vertically.
 set cursorcolumn
-
-
 
 " Set shift width to 4 spaces.
 set shiftwidth=4
@@ -67,8 +76,6 @@ set hlsearch
 " Set the commands to save in history default number is 20.
 set history=1000
 
-
-
 " Enable auto completion menu after pressing TAB.
 set wildmenu
 
@@ -79,6 +86,17 @@ set wildmode=list:longest
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
+" PLUGINS ---------------------------------------------------------------- {{{
+
+call plug#begin('~/.vim/plugged')
+
+  Plug 'dense-analysis/ale'
+
+  Plug 'preservim/nerdtree'
+
+call plug#end()
+
+" }}}
 
 " MAPPINGS --------------------------------------------------------------- {{{
 
@@ -113,7 +131,7 @@ nnoremap N Nzz
 nnoremap Y y$
 
 " Map the F5 key to run a Python script inside Vim.
-" I map F5 to a chain of commands here.
+" We map F5 to a chain of commands here.
 " :w saves the file.
 " <CR> (carriage return) is like pressing the enter key.
 " !clear runs the external clear screen command.
@@ -142,9 +160,6 @@ nnoremap <F3> :NERDTreeToggle<cr>
 let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
 
 " }}}
-
-
-
 
 " VIMSCRIPT -------------------------------------------------------------- {{{
 
@@ -183,7 +198,7 @@ if has('gui_running')
     colorscheme molokai
 
     " Set a custom font you have installed on your computer.
-    " Syntax: set guifont=<font_name>\ <font_weight>\ <size>
+    " Syntax: <font_name>\ <weight>\ <size>
     set guifont=Monospace\ Regular\ 12
 
     " Display more of the file by default.
@@ -193,7 +208,7 @@ if has('gui_running')
     " Hide the the left-side scroll bar.
     set guioptions-=L
 
-    " Hide the the right-side scroll bar.
+    " Hide the the left-side scroll bar.
     set guioptions-=r
 
     " Hide the the menu bar.
@@ -215,5 +230,21 @@ endif
 
 " }}}
 
+" STATUS LINE ------------------------------------------------------------ {{{
 
+" Clear status line when vimrc is reloaded.
+set statusline=
 
+" Status line left side.
+set statusline+=\ %F\ %M\ %Y\ %R
+
+" Use a divider to separate the left side from the right side.
+set statusline+=%=
+
+" Status line right side.
+"set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
+
+" Show the status on the second to last line.
+set laststatus=2
+
+" }}}
