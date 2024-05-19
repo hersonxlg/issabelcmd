@@ -248,3 +248,29 @@ set statusline+=%=
 set laststatus=2
 
 " }}}
+
+
+"-----------------------------------------------------
+" Cambiar el cursor de VIM.
+"-----------------------------------------------------
+
+" REMPLACE EL NUMERO DESPUES DE "\e["
+"
+" Ps = 0  -> blinking block.
+" Ps = 1  -> blinking block (default).
+" Ps = 2  -> steady block.
+" Ps = 3  -> blinking underline.
+" Ps = 4  -> steady underline.
+" Ps = 5  -> blinking bar (xterm).
+" Ps = 6  -> steady bar (xterm).
+
+let &t_SI = "\e[6 q"  " Insert Mode
+let &t_EI = "\e[2 q"  " Normal Mode
+
+" reset the cursor on start (for older versions of vim, usually not required)
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
+
+"-----------------------------------------------------
