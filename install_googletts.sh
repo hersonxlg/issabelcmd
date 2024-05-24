@@ -1,4 +1,4 @@
-Ecd ~/
+cd ~/
 yum update
 yum install perl perl-libwww perl-LWP-Protocol-https sox mpg123 format_sln -y
 git clone https://github.com/zaf/asterisk-googletts.git
