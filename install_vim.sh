@@ -1,5 +1,7 @@
 temp=$(pwd)
 
+yum install vim -y
+
 mkdir ~/.vim
 mkdir ~/.vim/autoload
 mkdir ~/.vim/backup
