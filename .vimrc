@@ -131,6 +131,6 @@ augroup END
 " Cambiar el cursor de VIM.
 "-----------------------------------------------------
 
-nmap kj <Esc>
+imap kj <Esc>
 nmap zv <c-v>
 
