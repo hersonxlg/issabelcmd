@@ -101,7 +101,7 @@ call plug#end()
 " MAPPINGS --------------------------------------------------------------- {{{
 
 " Set the backslash as the leader key.
-let mapleader = "\"
+let mapleader = " "
 
 " Press \\ to jump back to the last cursor position.
 nnoremap <leader>\ ``
