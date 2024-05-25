@@ -19,3 +19,7 @@ curl -o molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colo
 cd $temp
 cp .vimrc ~/
 cp .inputrc ~/
+
+cat .bashrc.addtoend>> ~/.bashrc
+
+cd $temp
