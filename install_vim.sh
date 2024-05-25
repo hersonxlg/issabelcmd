@@ -17,4 +17,5 @@ cd ~/.vim/colors
 curl -o molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 
 cd $temp
-mv .vimrc ~/
+cp .vimrc ~/
+cp .inputrc ~/
