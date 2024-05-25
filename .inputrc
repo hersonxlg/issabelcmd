@@ -1,0 +1,18 @@
+# edit ~/.inputrc
+
+# want vi to be the default editor for readline                      
+set editing-mode vi
+
+# vi settings                                         
+$if mode=vi
+    # normal mode                           
+    set keymap vi-command
+    "j": previous-history
+    "k": next-history
+    "l": forward-char
+    "h": backward-char
+    "G": end-of-history
+    # insert mode             
+    set keymap vi-insert
+    "kj": vi-movement-mode # remap escape
+$endif
