@@ -1,0 +1,33 @@
+temp=$(pwd)
+
+# Corregir la falla en "~/.bashrc"
+a='[[ $- == *i* ]] || return'
+b=$(grep -Fo "${a}" ~/.bashrc)
+
+if [ -z "${b}" ];then
+    # No existe el la linea deseada.
+    cat .bashrc>_temp
+    cat ~/.bashrc>>_temp
+    mv -f _temp ~/.bashrc
+    rm -f _temp
+    source ~/.bashrc
+fi
+
+# Corregir la falla en "/usr/lib/openssh/sftp-server"
+
+a='Subsystem sftp internal-sftp'
+b=$(grep -o "^${a}" /etc/ssh/sshd_config)
+
+if [ -z "${b}" ];then
+    # No existe el la linea deseada.
+    echo "\n">>/etc/ssh/sshd_config
+    echo '#Subsystem sftp /usr/lib/openssh/sftp-server'>>/etc/ssh/sshd_config
+    echo 'Subsystem sftp internal-sftp'>>/etc/ssh/sshd_config
+    systemctl restart sshd.service
+fi
+
+chmod +x install_fzf install_googletts.sh install_languages_festival.sh install_neovim.sh install_vim.sh
+
+
+
+cd $temp
