@@ -20,7 +20,7 @@ b=$(grep -o "^${a}" /etc/ssh/sshd_config)
 
 if [ -z "${b}" ];then
     # No existe el la linea deseada.
-    echo "\n">>/etc/ssh/sshd_config
+    echo "">>/etc/ssh/sshd_config
     echo '#Subsystem sftp /usr/lib/openssh/sftp-server'>>/etc/ssh/sshd_config
     echo 'Subsystem sftp internal-sftp'>>/etc/ssh/sshd_config
     systemctl restart sshd.service
