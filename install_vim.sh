@@ -20,6 +20,6 @@ cd $temp
 cp .vimrc ~/
 cp .inputrc ~/
 
-cat .bashrc.addtoend>> ~/.bashrc
+cat .bashrc.add2end>> ~/.bashrc
 
 cd $temp
