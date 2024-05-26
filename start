@@ -7,6 +7,7 @@ b=$(grep -Fo "${a}" ~/.bashrc)
 if [ -z "${b}" ];then
     # No existe el la linea deseada.
     cat .bashrc>_temp
+    echo "">>_temp
     cat ~/.bashrc>>_temp
     mv -f _temp ~/.bashrc
     rm -f _temp
