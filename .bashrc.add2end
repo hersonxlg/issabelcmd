@@ -3,4 +3,4 @@
 set -o vi
 
 # cambiar el <esc>
-bind '"kj" : "\e"'
+bind '"kj":"\e"'
