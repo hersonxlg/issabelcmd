@@ -21,5 +21,7 @@ cp .vimrc ~/
 cp .inputrc ~/
 
 cat .bashrc.add2end>> ~/.bashrc
+source ~/.inputrc
+source ~/.bashrc
 
 cd $temp
