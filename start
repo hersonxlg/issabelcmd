@@ -15,7 +15,6 @@ if [ -z "${b}" ];then
 fi
 
 # Corregir la falla en "/usr/lib/openssh/sftp-server"
-
 a='Subsystem sftp internal-sftp'
 b=$(grep -o "^${a}" /etc/ssh/sshd_config)
 
@@ -30,5 +29,5 @@ fi
 chmod +x install_fzf.sh install_googletts.sh install_languages_festival.sh install_neovim.sh install_vim.sh
 
 
-
 cd $temp
+
