@@ -34,6 +34,7 @@ if [ -z "${b}" ];then
 fi
 
 chmod +x install_fzf.sh install_googletts.sh install_languages_festival.sh install_neovim.sh install_vim.sh
+chmod +x install_powerline_fonts.sh
 
 
 cd $temp
