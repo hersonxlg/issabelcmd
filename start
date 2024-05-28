@@ -17,12 +17,19 @@ fi
 # Corregir la falla en "/usr/lib/openssh/sftp-server"
 a='Subsystem sftp internal-sftp'
 b=$(grep -o "^${a}" /etc/ssh/sshd_config)
-
 if [ -z "${b}" ];then
+    cp '/etc/ssh/sshd_config' '/etc/ssh/sshd_config.backup'
+    # Comentar cualquier comando "subsystem que exista":
+    sed 's/\(^subsystem.*\)/#\1/i' /etc/ssh/sshd_config > /etc/ssh/sshd_config.temp
     # No existe el la linea deseada.
-    echo "">>/etc/ssh/sshd_config
-    echo '#Subsystem sftp /usr/lib/openssh/sftp-server'>>/etc/ssh/sshd_config
-    echo 'Subsystem sftp internal-sftp'>>/etc/ssh/sshd_config
+    echo "">>/etc/ssh/sshd_config.temp
+    echo '#Subsystem sftp /usr/lib/openssh/sftp-server'>>/etc/ssh/sshd_config.temp
+    echo 'Subsystem sftp internal-sftp'>>/etc/ssh/sshd_config.temp
+    # Reemplazar "sshd_config" por "sshd_config.temp":
+    rm -f /etc/ssh/sshd_config
+    mv -f /etc/ssh/sshd_config.temp /etc/ssh/sshd_config
+
+    # Reiniciar el servidor SSH
     systemctl restart sshd.service
 fi
 
