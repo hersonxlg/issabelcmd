@@ -54,6 +54,7 @@ echo '------------------------------------------------------------'
 echo ' Guarda "ter-powerline-v14v.psf.gz" como funte del sistema  '
 echo '------------------------------------------------------------'
 systemctl setfont ter-powerline-v14v.psf.gz
+showconsolefont
 
 cd $repodir
 
