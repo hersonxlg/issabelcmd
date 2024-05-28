@@ -50,8 +50,10 @@ line='set -o vi'
 b=$(grep -o "^${line}" ~/.bashrc)
 if [ -z "${b}" ];then
     cp ~/.bashrc ~/.bashrc.backup
-    # No existe el la linea deseada.
-    echo "# --------------------------------------------------">~/.bashrc
+    # No existe el la linea deseada, por tanto:
+    # agregar el siguiete fragmento de codigo al final de "~/.bashrc"
+    echo "">>bashrc
+    echo "# --------------------------------------------------">>~/.bashrc
     echo "# vi-mode">>~/.bashrc
     echo "${line}">>~/.bashrc
     echo "# --------------------------------------------------">>~/.bashrc
