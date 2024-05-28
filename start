@@ -1,6 +1,8 @@
-temp=$(pwd)
+repodir=$(pwd)
 
+# ***************************************************************************
 # Corregir la falla en "~/.bashrc"
+# ***************************************************************************
 a='[[ $- == *i* ]] || return'
 b=$(grep -Fo "${a}" ~/.bashrc)
 
@@ -14,7 +16,9 @@ if [ -z "${b}" ];then
     source ~/.bashrc
 fi
 
+# ***************************************************************************
 # Corregir la falla en "/usr/lib/openssh/sftp-server"
+# ***************************************************************************
 a='Subsystem sftp internal-sftp'
 b=$(grep -o "^${a}" /etc/ssh/sshd_config)
 if [ -z "${b}" ];then
@@ -37,5 +41,5 @@ chmod +x install_fzf.sh install_googletts.sh install_languages_festival.sh insta
 chmod +x install_powerline_fonts.sh
 
 
-cd $temp
+cd $repodir
 

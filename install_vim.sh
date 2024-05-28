@@ -43,20 +43,21 @@ cp .inputrc ~/
 source ~/.inputrc
 
 # ***************************************************************************
-# Corregir la falla en "~/.bashrc"
+# Comprobar que vi-mode esta activo en bash
+# sino, activarlo.
 # ***************************************************************************
-line='[[ $- == *i* ]] || return'
-b=$(grep -o "^${line}" /etc/ssh/sshd_config)
+line='set -o vi'
+b=$(grep -o "^${line}" ~/.bashrc)
 if [ -z "${b}" ];then
     cp ~/.bashrc ~/.bashrc.backup
     # No existe el la linea deseada.
-    echo "--------------------------------------------------">~/.bashrc.temp
-    echo "${line}">>~/.bashrc.temp
-    echo "--------------------------------------------------">>~/.bashrc.temp
-    echo ~/.bashrc>>~/.bashrc.temp
-    # Reemplazar ".bashrc" por ".bashrc.temp":
-    rm -f ~/.bashrc
-    mv -f ~/.bashrc.temp ~/.bashrc
+    echo "# --------------------------------------------------">~/.bashrc
+    echo "# vi-mode">>~/.bashrc
+    echo "${line}">>~/.bashrc
+    echo "# --------------------------------------------------">>~/.bashrc
+    echo "# cambiar el <esc>">>~/.bashrc
+    echo "bind '\"kj\":\"\\e\"'">>~/.bashrc
+    echo "">>bashrc
 
     # recargar el fichero "~/.bashrc":
     source ~/.bashrc
