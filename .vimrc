@@ -10,10 +10,10 @@ filetype off
 syntax on
 
 " For plugins to load correctly
-filetype plugin indent on
+"filetype plugin indent on
 
 " TODO: Pick a leader key
-" let mapleader = " "
+let mapleader = " "
 
 " Security
 set modelines=0
@@ -64,8 +64,8 @@ set showmode
 set showcmd
 
 " Searching
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 set hlsearch
 set incsearch
 set ignorecase
@@ -97,7 +97,7 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
-" colorscheme solarized
+colorscheme solarized
 
 
 "-----------------------------------------------------
@@ -123,14 +123,91 @@ au!
 autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 
-"-----------------------------------------------------
-
 
 
 "-----------------------------------------------------
-" Cambiar el cursor de VIM.
+"
+"  PLUGINS VUNDLE:
+"  
+"-----------------------------------------------------
+"
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+"
+" 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+
+
+Plugin 'OIL.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'nvim-lua/plenary.nvim'
+Plugin 'nvim-telescope/telescope.nvim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline-themes'
+
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+
+
+"-----------------------------------------------------
+" Mappings de Vim.
 "-----------------------------------------------------
 
-imap kj <Esc>
-nmap zv <c-v>
+inoremap kj <Esc>
+nnoremap zv <c-v>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+"nnoremap <leader>t :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+"nnoremap <A-n> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+
 
