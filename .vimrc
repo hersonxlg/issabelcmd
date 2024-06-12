@@ -136,6 +136,8 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/root/.fzf/bin/fzf
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -147,7 +149,7 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -160,7 +162,7 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
+"Plugin 'ascenator/L9', {'name': 'newL9'}
 
 
 
@@ -170,6 +172,9 @@ Plugin 'nvim-lua/plenary.nvim'
 Plugin 'nvim-telescope/telescope.nvim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'junegunn/fzf'
+Plugin 'ompugao/ctrlp-history'
 
 
 
@@ -200,14 +205,39 @@ filetype plugin on
 
 inoremap kj <Esc>
 nnoremap zv <c-v>
+
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+nnoremap <S-j> <C-d>zz
+nnoremap <S-k> <C-u>zz
+nnoremap <S-h> 0
+nnoremap <S-l> $
+
+
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>u :!systemctl restart asterisk<CR><CR>
+
+nnoremap <leader>; q:
+
+
 
 nnoremap <leader>n :NERDTreeFocus<CR>
 "nnoremap <leader>t :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 "nnoremap <A-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+
+"-----------------------------------------------------
+" Lineas de altura que tendra la ventana
+" "command-line-history"
+"-----------------------------------------------------
+
+set cmdwinheight=20
 
 
 
