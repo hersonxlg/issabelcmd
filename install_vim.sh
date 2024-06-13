@@ -81,6 +81,9 @@ if [ -z "${b}" ];then
     echo "# --------------------------------------------------">>~/.bashrc
     echo "# cambiar el <esc>">>~/.bashrc
     echo "bind '\"kj\":\"\\e\"'">>~/.bashrc
+    echo "">>~/.bashrc
+    echo "">>~/.bashrc
+    echo "alias ext='vim /etc/asterisk/extensions_custom.conf'">>~/.bashrc
     echo "">>bashrc
 
     # recargar el fichero "~/.bashrc":
