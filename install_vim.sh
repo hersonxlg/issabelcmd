@@ -24,6 +24,23 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 
+# -----------------------------------------------------------------------------------
+# Remover el parametro "--shallow-submodules" de git que se indica en el fichero:
+#
+# ~/.vim/bundle/Vundle.vim/autoload/vundle/installer.vim
+#
+# debido a que genera errores en la instalacion de paquetes "vim" en Vundle
+# para "CentOS 7" (en issabel 4).
+#
+# -----------------------------------------------------------------------------------
+tempdir=$(pwd)
+cd ~/.vim/bundle/Vundle.vim/autoload/vundle/
+mv installer.vim installer.vim.backup # creo un backup.
+sed 's/\(.*\)\(--shallow-submodules \)\(.*\)/\1\3/i' installer.vim.backup >installer.vim
+cd $tempdir
+
+
+
 # ***************************************************************************
 # Descargar el esquema de colores "molokai" para vim.
 # ***************************************************************************
