@@ -1,3 +1,4 @@
+
 repdir=$(pwd)
 
 # ***************************************************************************
@@ -20,11 +21,15 @@ mkdir ~/.vim/plugged
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+
 # ***************************************************************************
 # Descargar el esquema de colores "molokai" para vim.
 # ***************************************************************************
 cd ~/.vim/colors
-curl -o molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+curl -o 'molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim'
+wget 'https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim'
 
 # ***************************************************************************
 # mover el fichero de configuracion de vim ".vimrc" del repositorio
