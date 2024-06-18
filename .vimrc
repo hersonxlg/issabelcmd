@@ -266,6 +266,5 @@ augroup END " }
 
 
 
-nmap zz :echo 'hola'
 
 
