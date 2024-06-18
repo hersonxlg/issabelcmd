@@ -10,6 +10,6 @@ bind '"kj":"\e"'
 # <---------------------------------------------------------------->
 
 
-alias sipconected='asterisk -rx "sip show users"'
+alias sipc='asterisk -rx "sip show peers"'
 alias ext='vim /etc/asterisk/extensions_custom.conf'
 alias sip='asterisk -x "sip show users"'
