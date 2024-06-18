@@ -91,13 +91,18 @@ set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+"set t_Co=256
+"set background=dark
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+
+
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
-colorscheme solarized
+"colorscheme koehler
+"colorscheme darkblue
+colorscheme torte
+
 
 
 "-----------------------------------------------------
@@ -220,6 +225,7 @@ nnoremap <S-l> $
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>u :!systemctl restart asterisk<CR><CR>
+nnoremap <leader>a :!mkdir a<CR><CR>
 
 nnoremap <leader>; q:
 
@@ -239,5 +245,27 @@ nnoremap <C-f> :NERDTreeFind<CR>
 
 set cmdwinheight=20
 
+
+"-----------------------------------------------------
+" Mis auto comandos
+"-----------------------------------------------------
+autocmd BufEnter extensions_custom.conf :nnoremap <leader>w :w<CR> :!systemctl restart asterisk<CR><CR>
+autocmd BufEnter .vimrc :nnoremap <leader>w :w<CR> :source %<CR>
+
+nnoremap <leader>l :w<CR> source % <CR>
+
+
+"-----------------------------------------------------
+" Recargar .vimrc cuando este se modifica:
+"-----------------------------------------------------
+" Autoreload after modifying .vimrc.
+augroup reload_vimrc " {
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
+
+
+nmap zz :echo 'hola'
 
 
