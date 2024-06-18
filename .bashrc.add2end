@@ -4,3 +4,12 @@ set -o vi
 
 # cambiar el <esc>
 bind '"kj":"\e"'
+
+# <---------------------------------------------------------------->
+#                 To the end.
+# <---------------------------------------------------------------->
+
+
+alias sipconected='asterisk -rx "sip show users"'
+alias ext='vim /etc/asterisk/extensions_custom.conf'
+alias sip='asterisk -x "sip show users"'
